@@ -1,0 +1,2 @@
+python-freckle-client==0.1
+requests==2.8.1
