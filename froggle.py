@@ -44,7 +44,7 @@ def create_freckle_entry(date, project_id, description, minutes):
     data = {
         'date': date,
         'project_id': project_id,
-        'description': description + ' #toggl',
+        'description': "{}, #toggl".format(description),
         'minutes': minutes,
     }
     return freckle.fetch_json('entries', 'POST', post_args=data)
@@ -89,7 +89,6 @@ def run(start_date, end_date):
         minutes = seconds / 60
         response = create_freckle_entry(date, project_id, description, minutes)
         print "Created Freckle entry: {}".format(response)
-
 
 
 def valid_date(s):
