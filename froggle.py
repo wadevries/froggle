@@ -44,7 +44,7 @@ def create_freckle_entry(date, project_id, description, minutes):
     data = {
         'date': date,
         'project_id': project_id,
-        'description': "{}, #toggl".format(description),
+        'description': "toggl !! {}".format(description),
         'minutes': minutes,
     }
     return freckle.fetch_json('entries', 'POST', post_args=data)
@@ -82,7 +82,7 @@ def run(start_date, end_date):
         collected_entries[(entry['start'].split('T')[0], PROJECT_MAP[str(entry['pid'])], entry['description'])] += entry['duration']
 
     # Create the "toggl" tag
-    print "Creating #toggl tag: {}".format(freckle.fetch_json('tags', 'POST', post_args={'names': ['toggl']}))
+    print "Creating toggl tag: {}".format(freckle.fetch_json('tags', 'POST', post_args={'names': ['toggl']}))
 
     # 5. Create time entries in Freckle
     for ((date, project_id, description), seconds) in sorted(collected_entries.items()):
