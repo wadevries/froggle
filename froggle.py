@@ -5,7 +5,7 @@ import json
 import os
 
 from freckle_client.client import FreckleClientV2
-from toggl.api_client import TogglClientApi
+from api_client import TogglClientApi
 
 FRECKLE_PROJECTS = None
 
