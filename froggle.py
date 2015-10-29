@@ -85,10 +85,11 @@ def run(start_date, end_date):
     print "Creating toggl tag: {}".format(freckle.fetch_json('tags', 'POST', post_args={'names': ['toggl']}))
 
     # 5. Create time entries in Freckle
+    print "Creating Freckle entries:"
     for ((date, project_id, description), seconds) in sorted(collected_entries.items()):
         minutes = seconds / 60
         response = create_freckle_entry(date, project_id, description, minutes)
-        print "Created Freckle entry: {}".format(response)
+        print u"{date} {project[name]:30} {minutes:-3} {description}".format(**response)
 
 
 def valid_date(s):
