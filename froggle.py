@@ -120,7 +120,7 @@ def start_of_today():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('Copy time entries from Toggl to Freckle')
-    parser.add_argument('--start_date', type=valid_date, default=start_of_today() - datetime.timedelta(days=1, microseconds=1))
+    parser.add_argument('--start-date', type=valid_date, default=start_of_today() - datetime.timedelta(days=1, microseconds=1))
     a = parser.add_argument('--end-date', type=valid_date, default=start_of_today() - datetime.timedelta(microseconds=1),
                             required=False)
 
