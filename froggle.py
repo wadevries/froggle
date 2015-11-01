@@ -106,6 +106,7 @@ def load_config():
         print "Loading tokens from config"
         with open(filename, 'r') as f:
             return json.load(f)
+    return {}
 
 
 def save_config(config):
