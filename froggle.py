@@ -79,7 +79,11 @@ def run(start_date, end_date):
             continue
 
         # Construct request to send to Freckle:
-        collected_entries[(entry['start'].split('T')[0], PROJECT_MAP[str(entry['pid'])], entry['description'])] += entry['duration']
+        collected_entries[(
+            entry['start'].split('T')[0],
+            PROJECT_MAP[str(entry['pid'])],
+            entry.get('description', ''))
+        ] += entry['duration']
 
     # Create the "toggl" tag
     print "Creating toggl tag: {}".format(freckle.fetch_json('tags', 'POST', post_args={'names': ['toggl']}))
