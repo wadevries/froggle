@@ -22,7 +22,7 @@ def get_freckle_projects():
 def prompt_project_mapping(project_id, project_name):
     # Fetch all Freckle projects
     freckle_projects = get_freckle_projects()
-    print "Select Project in Freckle which corresponds to '{} ({})' from Toggl".format(project_name, project_id)
+    print 'Select Project in Freckle which corresponds to \'{} ({})\' from Toggl'.format(project_name, project_id)
     print
     for i, (id_, name) in enumerate(freckle_projects, 1):
         print "{:2} {}".format(i, name)
@@ -45,7 +45,7 @@ def create_freckle_entry(date, project_id, description, minutes):
     data = {
         'date': date,
         'project_id': project_id,
-        'description': "#toggl {}".format(description),
+        'description': u'#toggl {}'.format(description),
         'minutes': minutes,
     }
     return freckle.fetch_json('entries', 'POST', post_args=data)
